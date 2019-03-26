@@ -2,11 +2,22 @@
 import React from 'react'
 
 class Hello extends React.Component {
-    render() {
-        return <div>
-            <h1>Hello React</h1>
-        </div>
-    }
+  onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.currentTarget.value)
+  }
+
+  render() {
+    return <div>
+      <div>
+        <label>defaultValue:</label>
+        <input defaultValue='you can change me' onChange={this.onChange}/>
+      </div>
+      <div>
+        <label>value:</label>
+        <input value='you cannot change me' onChange={this.onChange}/>
+      </div>
+    </div>
+  }
 }
 
 export default Hello
